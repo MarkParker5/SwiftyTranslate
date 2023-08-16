@@ -18,6 +18,7 @@ public extension Language {
     static let english = Language(code: "en", name: "English")
 }
 
+@available(iOS 13.0.0, *)
 public class SwiftyTranslate {
     
     public var languages: [Language] {
@@ -27,7 +28,7 @@ public class SwiftyTranslate {
             }
             .compactMap { locale in
                 guard
-                    let languageCode = locale.language.languageCode?.identifier,
+                    let languageCode = locale.identifier.split(separator: "_").first.map(String.init),
                     let languageName = locale.localizedString(forLanguageCode: languageCode)
                 else {
                     return nil
