@@ -8,8 +8,8 @@
 import Foundation
 
 public struct Language: Identifiable, Hashable {
-    let code: String
-    let name: String
+    public let code: String
+    public let name: String
     
     public var id: String { code }
 }
@@ -20,6 +20,8 @@ public extension Language {
 
 @available(iOS 13.0.0, *)
 public class SwiftyTranslate {
+    
+    public init() {}
     
     public var languages: [Language] {
         Locale.availableIdentifiers
